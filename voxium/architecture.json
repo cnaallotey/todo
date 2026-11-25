@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "modules": {
+    "src": {
+      "paths": [
+        "src/**"
+      ],
+      "description": "Files under src/"
+    }
+  },
+  "layers": [
+    "src"
+  ],
+  "rules": [
+    {
+      "id": "LAYER01",
+      "type": "layers",
+      "severity": "block",
+      "description": "Modules may only import from their own module or from modules lower in the layer order: src.",
+      "rationale": "A fixed dependency direction keeps lower layers reusable and stops circular knowledge between areas of the app."
+    },
+    {
+      "id": "CYCLE01",
+      "type": "no_cycles",
+      "severity": "block",
+      "description": "Modules must not depend on each other in a cycle.",
+      "rationale": "Cycles make modules impossible to change, test or extract on their own."
+    },
+    {
+      "id": "SIZE01",
+      "type": "max_file_lines",
+      "max": 600,
+      "severity": "warn",
+      "description": "Source files should stay under 600 lines.",
+      "rationale": "Very large files usually mix responsibilities and are hard for humans and agents to change safely."
+    }
+  ],
+  "exceptions": [],
+  "ignore": [
+    "dist/**"
+  ]
+}

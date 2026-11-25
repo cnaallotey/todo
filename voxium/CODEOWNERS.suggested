@@ -1,0 +1,7 @@
+# Architecture changes need a Team Leader. Add this to .github/CODEOWNERS
+# and require code owner review in branch protection.
+/voxium/ @your-team-leaders
+/CLAUDE.md @your-team-leaders
+/AGENTS.md @your-team-leaders
+# A pull request can edit the workflows that check it, and these owners, so both need review too.
+/.github/ @your-team-leaders
